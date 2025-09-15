@@ -53,7 +53,7 @@ jobs:
         script: |
           find "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}" -type f -name "*.php" ! -name "wp-config.php" -delete
           rm -r "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-admin/" "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-includes/"
-          unzip -o "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress.zip" -d "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/"
+          
           mv "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress"/* "${{ github.event_name == 'push' && 'public_html/dev.geniuscourses.com' || 'public_html/live.geniuscourses.com' }}/"
           rm -r "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress"
 
@@ -78,4 +78,4 @@ jobs:
         script: |
           rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/.maintenance"
           rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wpcontent.zip"
-          rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress.zip"
+      
