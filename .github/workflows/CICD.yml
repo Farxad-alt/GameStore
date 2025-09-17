@@ -68,14 +68,14 @@ jobs:
           rm -rf "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-content/plugins" "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-content/mu-plugins" "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-content/themes"
           unzip -o "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wpcontent.zip" -d "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wp-content/"
 
-    - name: Disable Maintenance Mode and Remove zips
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/.maintenance"
-          rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wpcontent.zip"
-          rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress.zip"
+    # - name: Disable Maintenance Mode and Remove zips
+    #   uses: appleboy/ssh-action@v1.0.3
+    #   with:
+    #     host: ${{ secrets.SSH_HOST }}
+    #     username: ${{ secrets.SSH_USER }}
+    #     password: ${{ secrets.SSH_PASSWORD }}
+    #     port: ${{ secrets.SSH_PORT }}
+    #     script: |
+    #       rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/.maintenance"
+    #       rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wpcontent.zip"
+    #       rm -f "${{ github.event_name == 'push' && 'www/django.farhadsite.ru/' || 'public_html/live.geniuscourses.com' }}/wordpress.zip"
